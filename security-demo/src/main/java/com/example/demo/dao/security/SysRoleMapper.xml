@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @(#) SysRoleMapper.xml
+  ~ 版权声明 厦门畅享信息技术有限公司, 版权所有 违者必究
+  ~
+  ~ <br> Copyright:  Copyright (c) 2020
+  ~ <br> Company:厦门畅享信息技术有限公司
+  ~ <br> @author Administrator
+  ~ <br> 2020-02-26 15:32:20
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.security.SysRoleMapper">
+
+    <select id="getRoleByUserId" resultType="com.example.demo.entity.security.SysRole">
+       SELECT
+            T1.ROLE_ID,
+            T1.NAME,
+            T1.NAME_CN
+        FROM
+            T_SYS_ROLE T1
+        LEFT JOIN T_SYS_LINK_USER_ROLE T2 ON T1.ROLE_ID = T2.ROLE_ID
+        WHERE T2.USER_ID = #{userId}
+    </select>
+
+</mapper>

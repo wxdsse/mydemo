@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://49.233.151.231:3306/TEST_DB?useUnicode=true&characterEncoding=utf-8
+    driver: com.mysql.cj.jdbc.Driver
+    userName: root
+    password: wangXd#411
+    validationQuery: select 1 from dual
+    maxActive: 10
+
+
+server:
+  port: 9999
+
+jwt:
+  startUp: false
+  secret: YWRtaW4xMjM0NTY= #秘钥必须经过base64编码
+  expiration: 60000 #毫秒
+  header: jwtAuth
